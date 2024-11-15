@@ -7,7 +7,7 @@
         <img src="images/logo.jpeg" alt="Mumbwe Sunday School Logo" class="logo">
       <span class="brand-name">Mumbwe Sunday School</span>
       <a href="login.html">
-        <img src="images/log in.jpg" alt="Login Icon" class="login-icon">
+        <img src="../images/log in.jpg" alt="Login Icon" class="login-icon">
       </a>
         <button class="menu-btn" onclick="openMenu()">☰ Menu</button>
     </nav>
