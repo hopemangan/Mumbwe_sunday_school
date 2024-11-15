@@ -4,7 +4,7 @@
 <div class="navigation">
        <!-- Navbar -->
     <nav class="navbar">
-        <img src="images/logo.jpeg" alt="Mumbwe Sunday School Logo" class="logo">
+        <img src="../images/logo.jpeg" alt="Mumbwe Sunday School Logo" class="logo">
       <span class="brand-name">Mumbwe Sunday School</span>
       <a href="login.html">
         <img src="../images/log in.jpg" alt="Login Icon" class="login-icon">
