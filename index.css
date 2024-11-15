@@ -1,0 +1,212 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.navbar {
+    background-color: blue;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.brand-name {
+    font-size: 1.5rem; /* Use rem for scalable font sizes */
+    font-weight: bold;
+}
+
+.menu-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.menu-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(117, 93, 93, 0.8);
+    display: none;
+    z-index: 1000;
+}
+
+.menu-content {
+    background-color: black;
+    width: 75%;
+    max-width: 300px; /* Limit width */
+    height: 100%;
+    gap: 20px;
+}
+
+.menu-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-content li {
+    margin: 15px 0;
+}
+
+.menu-content li a {
+    color: #f4f4f9;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    transition: background 0.3s;
+}
+
+.menu-content li a:hover {
+    color: green;
+}
+
+.logo {
+    height: 50px;
+    width: auto; /* Maintain aspect ratio */
+}
+
+.login-icon {
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+    margin-left: 700px;
+}
+
+.landing {
+    height: 100vh;
+    background: url(images/background2.jpg) center/cover no-repeat;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+}
+
+.overlay h1 {
+    font-size: 2rem;
+}
+
+.overlay p {
+    font-size: 1rem;
+}
+
+.top-images {
+    display: flex;
+    gap: 50px;
+    flex-wrap: wrap; 
+    justify-content: center;
+}
+
+.top-image {
+    width: 100px;
+    height: 100px;
+    overflow: hidden;
+    border-radius: 10px;
+    transition: transform 0.5s ease;
+}
+
+.top-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+  /* Zoom effect on hover */
+  .top-image:hover {
+    transform: scale(1.1);
+}
+
+.login-button {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.login-button:hover {
+    background-color: #0056b3;
+}
+
+
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 1.2rem;
+    }
+
+    .menu-btn {
+        margin-right: 10px;
+    }
+
+    .login-icon {
+        margin-left: auto;
+    }
+
+    .overlay h1 {
+        font-size: 1.5rem;
+    }
+
+    .overlay p {
+        font-size: 0.9rem;
+    }
+
+    .footer {
+        text-align: center;
+    }
+
+    .footer .footer-column {
+        flex: 1 1 100%; /* Full width on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar {
+        flex-direction: column;
+    }
+
+    .menu-content {
+        width: 100%;
+    }
+
+    .landing {
+        background-position: center;
+    }
+
+    .overlay h1 {
+        font-size: 1.2rem;
+    }
+
+    .overlay p {
+        font-size: 0.8rem;
+    }
+
+    .top-image {
+        width: 80px;
+        height: 80px;
+    }
+}

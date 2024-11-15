@@ -1,0 +1,525 @@
+:root{
+    --primary-color: rgba(56,56,229,0.972);
+    --navbar-primary-color: rgba(56, 56, 229, 0.972);
+    --secondary-color: rgba(244, 236, 236, 0.953);
+    --navbar-color: rgba(74, 74, 210, 0.931);
+    --navbar-secondary: wheat;
+    --box-shadow: rgba(0, 0, 0, 0.3);
+    --primary-font-familty: sans-serif;
+}
+
+*{
+    font-family: var(--primary-font-familty);
+}
+body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--secondary-color);
+}
+.cards-curri{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+.course-data{
+    padding: 10px;
+    width: 26%;
+    margin: 10px 0px 10px 20px;
+    box-shadow: 3px 3px 2px rgba(0,0,0,0.1);
+    padding: 15px;
+    position: relative;
+    border-radius: 0.2em;
+    transition: 0.4s ease-in-out ;
+}
+
+/*navbar style */
+.navbar {
+    background-color: blue;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.brand-name {
+    font-size: 1.5rem; /* Use rem for scalable font sizes */
+    font-weight: bold;
+}
+
+.menu-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+    margin-right: 10px;
+}
+
+.menu-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(117, 93, 93, 0.8);
+    display: none;
+    z-index: 1000;
+}
+
+.menu-content {
+    background-color: black;
+    width: 75%;
+    max-width: 300px; /* Limit width */
+    height: 100%;
+    gap: 20px;
+}
+
+.menu-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-content li {
+    margin: 15px 0;
+}
+
+.menu-content li a {
+    color: #f4f4f9;
+    text-decoration: none;
+    font-size: 1em;
+    padding: 10px 20px;
+    transition: background 0.3s;
+}
+
+.menu-content li a:hover {
+    color: green;
+}
+
+.logo {
+    height: 50px;
+    width: auto; /* Maintain aspect ratio */
+}
+
+.login-icon {
+    width: 90px;
+    height: auto;
+    cursor: pointer;
+    margin-left: 700px;
+}
+.nav_footer-column h3{
+    color: blue;
+            }
+            .nav_social-media a:hover{
+    color: blue;
+            }
+            
+            .nav_newsletter input[type="email"]{
+               
+                padding: 8px;
+                border: none;
+                border-radius: 5px;
+                width: 80%;
+                max-width: 200px;
+                margin-bottom: 8px;
+            
+            }
+            .nav_newsletter button{
+                padding: 5px 10px;
+                border: none;
+                background-color: blue;
+                color: white;
+                border-radius: 5px;
+                cursor: pointer;
+                font-size: 16px;
+            }
+            .nav_newsletter h3{
+                color: white;
+            }
+          .nav_newsletter button:hover{
+            background-color: white;
+            color: blue;
+          }
+          .nav_footer-column{
+            margin-top: 50px;
+          }
+          .nav_footer-column a{
+            text-decoration: none;
+            color: white;
+            display: inline;
+            gap: 60px;
+            justify-content: space-between;
+          }
+  .landing {
+    position: relative;
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    animation: fade 3s infinite;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+  }
+  
+  .overlay h1 {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+  }
+  
+  .overlay p {
+    font-size: 1.2em;
+  }
+/* Styles for the background and overlay */
+
+    .overlay {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5); 
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: #fff;
+    }
+
+    .overlay h1 {
+        font-size: 3em;
+        margin: 0.5em 0;
+    }
+
+    .overlay p {
+        font-size: 1.2em;
+    }
+
+        .scroll-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 1em;
+            color: #fff;
+            background-color: #007BFF;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* Top images styling */
+        .top-images {
+            display: flex;
+            gap: 50px;
+        }
+
+        .top-image {
+            width: 130px;
+            height: 130px;
+            overflow: hidden;
+            border-radius: 10px;
+            transition: transform 0.5s ease; 
+        }
+
+        .top-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease; /* Smooth zoom effect */
+        }
+
+        /* Zoom effect on hover */
+        .top-image:hover {
+            transform: scale(1.1);
+        }
+   /* About Section Styles */
+   .about-section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+.about-section h2 {
+    color: #444;
+    font-weight: bold;
+    margin-top: 20px;
+}
+.about-section a {
+    color: #3366cc;
+    text-decoration: none;
+}
+.about-section a:hover {
+    text-decoration: underline;
+}
+.about-section blockquote {
+    font-style: italic;
+    margin-top: 20px;
+    color: #666;
+    
+}
+.h{
+    color: #0056b3;
+
+}
+.about_us{
+    background-color: #e6e8eb;
+    border-radius: 20px;
+}
+ /* Team Section Styling */
+ .team-section {
+    background-color: #f9f9f9;
+    padding: 50px 20px;
+    text-align: center;
+    color: #333;
+}
+
+.team-section h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    color: #007BFF;
+}
+
+.team-section p {
+    font-size: 18px;
+    margin: 10px auto 30px;
+    max-width: 800px;
+    color: #555;
+}
+
+.team-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+}
+
+.team-card {
+    background-color: #ffffff;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    padding: 20px;
+    width: 250px;
+    text-align: center;
+}
+
+.team-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+}
+
+.team-name {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+}
+
+.team-role {
+    font-size: 16px;
+    color: #007BFF;
+    margin-bottom: 10px;
+}
+
+.team-bio {
+    font-size: 14px;
+    color: #666;
+}
+
+/*table styling for diplaying students attendance*/
+table, tr,th,td{
+    border-collapse: collapse;
+    border: 2px solid black;
+    padding: 20px;
+}
+th{
+    padding: 10px;
+    background-color: rgb(42, 61, 102);
+    color: white;
+}
+td{
+    padding: 5px;
+    border: 1px solid black;
+    text-align: center;
+}
+table{
+    width: 100%;
+    border-radius: 0.3em;
+
+}
+
+/*section for .indivisual-students section*/
+.indivisual-students , section{
+    width: 90%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+table button{
+    border: none;
+    background-color: green;
+    font-size: 25px;
+    padding: 5px 5px;
+    border-radius: 0.2em;
+}
+
+.body-content{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+/* style for the .quick-access menu bar*/
+.quick-access{
+    border: 1px solid black;
+    border-radius: 0.3em;
+    color: white;
+    margin: auto;
+    margin-left: 15px;
+    width: 20%;
+    margin-top: 70px;
+    height: auto;
+    font-size: 20px;
+    padding: 2px;
+}
+.quick-access li{
+    margin-top: 30px;
+}
+.quick-access a{
+    text-decoration: underline;
+    color: blue;
+    border-radius: 0.3em;
+  
+}
+.navigation-button{
+    margin: auto;
+    width: 50%;
+    margin-top: 20px;
+}
+.navigation-button button{
+    border: none;
+    border-radius: 0.2em;
+    padding: 8px;
+    width: 30%;
+    cursor: pointer;
+    font-size: 20px;
+}
+.navigation-button button:hover{
+    opacity: 0.9;
+}
+.navigation-button button:nth-child(1){
+    background-color: green;
+    margin-right: 20px;
+    text-align: center;
+}
+.navigation-button button:nth-child(2){
+    background-color: red;
+}
+.main-content{
+    width: 80%;
+}
+/* style for the three cards*/
+.numbers{
+    width: 90%;
+}
+.stats{
+    display: flex;
+    flex-direction: row;
+}
+.stats div{
+    margin-right: 20px;
+    text-align: center;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.5);
+    border-radius: 0.2em;
+    width: 40%;
+}
+.stats h2{
+    font-size: 26px;
+    color: blue;
+}
+.stats h3{
+    font-size: 20px;
+}
+
+.change-class{
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    height: 100%;
+    display: none;
+}
+.box{
+    background-color: var(--secondary-color);
+    width: 40%;
+    position: absolute;
+    height: 250px;
+    margin: auto;
+    margin: 200px;
+    margin-left: 400px;
+    border-radius: 0.2em;
+    padding: 10px;
+    transition: display 0.4s ease-in-out;
+}
+
+.container-stats{
+    width: 60%;
+    box-shadow: 3px 5px 5px var(--box-shadow);
+    padding: 10px 20px;
+    height: auto;
+    margin: auto;
+}
+@media (max-width: 700px) {
+    .quick-access{
+        display: none;
+    }
+    .numbers{
+        width: 100%;
+    }
+    .numbers .stats{
+        flex-direction: column;
+    }
+    .stats div{
+        width: 100%;
+        margin-top: 10px;
+    }
+
+    .navbar .menu-btn{
+        margin: 0;
+        width: 10%;
+        padding: 2px;
+        font-size: 25px;
+    }
+    .navbar a{
+        display: none;
+    }
+    .navigation-button{
+        width: 90%;
+    }
+    .container-stats{
+        width: 100%;
+    }
+
+}

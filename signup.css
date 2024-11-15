@@ -1,0 +1,361 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar {
+    background-color: blue;
+    color: white;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+   
+    color: white;
+   
+   
+    padding: 15px 20px;
+    z-index: 1000;
+}
+
+.brand-name {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.menu-btn {
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px;
+  margin-right: 50px;
+}
+
+.menu-window {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(117, 93, 93, 0.8);
+    display: none;
+    z-index: 1000;
+}
+
+.menu-content {
+    background-color: black;
+    width: 250px;
+    gap: 20px;
+    height: 100%;
+   
+}
+
+.menu-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.menu-content li {
+    margin: 15px 0;
+}
+.menu-content ul li a:hover {
+  color: green; 
+  
+   
+
+}
+.menu-content li a {
+    color: #f4f4f9;
+    text-decoration: none;
+    font-size: 1.1em;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    transition: background 0.3s;
+}
+
+.menu-content .close-btn {
+    background: none;
+    border: none;
+    font-size: 20px;
+    cursor: pointer;
+    color: yellow;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    
+  }
+  .login-icon {
+    width: 90px;
+    height: 35px;
+    cursor: pointer;
+    margin-left: 700px;
+  }
+  /*sign up thing*/
+  .wabwera {
+    width: 600px;;;
+    margin: 50px auto;
+    background-color: hsl(0, 0%, 83%);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    text-align: center;
+    color: black;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    color: grey;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"],
+select {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid whitesmoke;
+    border-radius: 5px;
+    box-sizing: border-box;
+    border-color: solid black;
+}
+
+input[type="submit"] {
+    width: 100px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: hsl(231, 88%, 39%);
+    color: whitesmoke;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    align-items: center;
+    margin-left: 250px;
+}
+
+input[type="submit"]:hover {
+    background-color:white;
+    color: blue;
+}
+.form-group {
+    display: flex; 
+    align-items: center; 
+    margin-bottom: 10px; 
+}
+
+.form-group label {
+    margin-right: 10px; 
+    width: 100px; 
+}
+
+.form-group input {
+    flex: 1; 
+    padding: 5px; 
+}
+.here{
+    background-image: url(images/background2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+
+  
+
+}
+      /* Footer Styling */
+      .footer {
+        background-color: #333;
+        color: white;
+        padding: 40px 20px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        align-items: center;
+        text-align: left;
+    }
+
+    .footer .footer-column {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+    }
+
+    .footer .footer-column h3 {
+        font-size: 20px;
+        color: #f1c40f;
+        margin-bottom: 15px;
+    }
+
+    .footer .footer-column ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .footer .footer-column ul li {
+        margin-bottom: 10px;
+    }
+
+    .footer .footer-column ul li a {
+        color: #ddd;
+        text-decoration: none;
+        font-size: 16px;
+    }
+
+    .footer .footer-column ul li a:hover {
+        color: #f1c40f;
+    }
+
+    /* Social Media Links */
+    .footer .social-media {
+        display: flex;
+        gap: 15px;
+        font-size: 24px;
+    }
+
+    .footer .social-media a {
+        color: #ddd;
+        text-decoration: none;
+    }
+
+    .footer .social-media a:hover {
+        color: #f1c40f;
+    }
+
+    /* Newsletter Form */
+    .footer .newsletter input[type="email"] {
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
+        width: 100%;
+        max-width: 250px;
+        margin-bottom: 10px;
+    }
+
+    .footer .newsletter button {
+        padding: 10px 20px;
+        border: none;
+        background-color: #f1c40f;
+        color: white;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    .footer .newsletter button:hover {
+        background-color: #d4a50d;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+        text-align: center;
+        color: #888;
+        font-size: 14px;
+        margin-top: 20px;
+        border-top: 1px solid #555;
+        padding-top: 10px;
+    }
+/* Responsive Design */
+
+/* General adjustments for tablets and smaller screens */
+@media (max-width: 1024px) {
+    .navbar {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .login-icon {
+        margin-left: 0;
+        align-self: flex-end;
+    }
+
+    .menu-content {
+        width: 75%;
+    }
+
+    .footer {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer .footer-column {
+        min-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .wabwera {
+        width: 80%;
+    }
+}
+
+/* For screens smaller than 768px */
+@media (max-width: 768px) {
+    .brand-name {
+        font-size: 20px;
+    }
+
+    .menu-btn {
+        padding: 8px 16px;
+        margin-right: 10px;
+    }
+
+    .login-icon {
+        width: 70px;
+        height: auto;
+    }
+
+    .footer-bottom {
+        font-size: 12px;
+    }
+
+    .wabwera {
+        width: 90%;
+        padding: 15px;
+    }
+}
+
+/* For screens smaller than 480px */
+@media (max-width: 480px) {
+    .navbar {
+        font-size: 14px;
+        padding: 8px;
+    }
+
+    .brand-name {
+        font-size: 16px;
+    }
+
+    .menu-btn {
+        padding: 8px;
+    }
+
+    .login-icon {
+        width: 50px;
+        height: auto;
+    }
+
+    input[type="submit"] {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+
+    .wabwera {
+        width: 95%;
+        margin: 20px auto;
+    }
+}

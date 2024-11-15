@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mumbwe Sunday School Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="home.css">
+    <style>
+        /* Profile Modal Styles */
+.modal {
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    background-color: rgba(0, 0, 0, 0.5); 
+}
+
+.modal-content {
+    background-color: white;
+    margin: 15% auto; 
+    padding: 20px;
+    border-radius: 5px;
+    width: 80%; 
+    max-width: 500px;
+}
+
+.close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.nav_footer-column h3{
+color: blue;
+        }
+        .nav_social-media a:hover{
+color: blue;
+        }
+        
+        .nav_newsletter input[type="email"]{
+           
+            padding: 8px;
+            border: none;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 200px;
+            margin-bottom: 8px;
+        
+        }
+        .nav_newsletter button{
+            padding: 5px 10px;
+            border: none;
+            background-color: blue;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .nav_newsletter h3{
+            color: white;
+        }
+      .nav_newsletter button:hover{
+        background-color: white;
+        color: blue;
+      }
+      .nav_footer-column{
+        margin-top: 50px;
+      }
+      .nav_footer-column a{
+        text-decoration: none;
+        color: white;
+        display: inline;
+        gap: 60px;
+        justify-content: space-between;
+      }
+     
+     
+        .container {
+        display: grid;
+        
+        align-items: center; 
+        justify-content: center; 
+        width: 1295px;
+      
+        padding: 20px; 
+    }
+
+.features h2{
+    color: blue;
+}
+    
+    .feature-item {
+   
+        border: 1px solid #ddd; 
+        border-radius: 5px;
+        background-color: #fff; 
+        text-align: center;
+    }
+
+    .learn-more-link {
+        display: inline-block;
+        margin-top: 10px;
+        color: #007BFF; 
+        text-decoration: none;
+    }
+
+    .learn-more-link:hover {
+        text-decoration: underline; 
+    }
+
+   
+    .feature-item:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        transform: translateY(-5px);
+        transition: all 0.3s ease-in-out;
+    }
+
+ 
+    @media (max-width: 1024px) {
+        .feature-list {
+            flex-wrap: wrap;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .feature-item {
+            width: 90%;
+            margin-bottom: 20px;
+        }
+    }
+</style>
+    </style>
+</head>
+<body>
+      <!-- Navbar -->
+    <nav class="navbar">
+        <img src="images/logo.jpeg" alt="Mumbwe Sunday School Logo" class="logo">
+      <span class="brand-name">Mumbwe Sunday School</span>
+   
+      <a href="login.html">
+        <img src="images/log in.jpg" alt="Login Icon" class="login-icon">
+    </a>
+    
+    
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <button class="menu-btn" onclick="openMenu()">☰ Menu</button>
+    </nav>
+
+    <!-- Hidden menu window -->
+    <div id="menu-window" class="menu-window">
+        <div class="menu-content">
+            
+            <button class="close-btn" onclick="closeMenu()">X</button>
+            <ul>
+                <li><a href="index.html"><i class="fa-solid fa-house"></i> &nbsp;Home</a></li>
+               <li> <a href="registration.html"><i class="fa-solid fa-address-card"></i>&nbsp; Registration</a></li>
+               <li> <a href="#attendance"><i class="fa-solid fa-clipboard-user"></i> &nbsp;Attendance</a>
+               <li><a href="curriculumm.html"><i class="fas fa-book"></i> &nbsp;Curriculum</a></li>
+                <li><a href="communication.php"><i class="fas fa-envelope"></i> &nbsp;Communication</a></li>
+                <li><a href="report/teacher/reports-user.php"><i class="fas fa-chart-line"></i> &nbsp;Reports</a></li>
+                <li><a href="admin_dashboard.html"><i class="fas fa-tachometer-alt"></i> &nbsp;Admin Dashboard</a></li>
+                
+            </ul>
+            
+            <!-- nav Social Media -->
+             
+  <div class="nav_footer-column">
+    <h3>Follow Us</h3>
+    <div class="nav_social-media">
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
+</div>
+
+<!--nav  Newsletter Subscription -->
+<div class="nav_newsletter">
+    <h3>Subscribe to Our Newsletter</h3>
+    <form action="subscribe.php" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" required>
+        <button type="submit">Subscribe</button>
+    </form>
+</div>
+        </div>
+
+    </div>
+
+   <!-- Features Quick Recap Section -->
+    <br><br><br>
+   <section id="features" class="features">
+  
+    <div class="container">
+        <h3 style="text-align: center; margin-bottom: 30px; color: #007BFF; font-size: 32px;">Our Features</h3>
+        <div class="feature-list" style="display: flex; gap: 10px; justify-content: center;">
+            <!-- Card 1 -->
+          
+            <div class="feature-item" style="background: #f9f9f9; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width:270px; text-align: center;">
+                <h4>Quick & Easy Registration</h4>
+                <p>Enroll children in Sunday School quickly with our easy-to-use registration process.</p>
+                <a href="registration.html" class="learn-more-link" style="color: #007BFF; text-decoration: none; font-weight: bold;">Learn More</a>
+            </div> 
+
+            <!-- Card 2 -->
+            <div class="feature-item" style="background: #f9f9f9; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width:270px; text-align: center;">
+                <h4>Dynamic Curriculum</h4>
+                <p>Engage children with a structured and flexible curriculum tailored for every age group.</p>
+                <a href="#curriculum" class="learn-more-link" style="color: #007BFF; text-decoration: none; font-weight: bold;">Learn More</a>
+            </div>
+
+            <!-- Card 2 -->
+            <div class="feature-item" style="background: #f9f9f9; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width:270px; text-align: center;">
+                <h4>Attendance Tracking</h4>
+                <p>Keep track of student attendance seamlessly, allowing you to monitor engagement and progress.</p>
+                <a href="#attendance" class="learn-more-link" style="color: #007BFF; text-decoration: none; font-weight: bold;">Learn More</a>
+            </div>
+
+            <!-- Card 4 -->
+            <div class="feature-item" style="background: #f9f9f9; border-radius: 8px; padding: 20px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); width:270px; text-align: center;">
+                <h4>Report Generation</h4>
+                <p>Generate detailed reports on student progress, attendance, and class performance.</p>
+                <a href="#reports" class="learn-more-link" style="color: #007BFF; text-decoration: none; font-weight: bold;">Learn More</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Team Section -->
+<section class="team-section" id="team">
+    <h2>Meet Our Team</h2>
+    <p>Our dedicated team is committed to nurturing faith, integrity, and compassion in every child.</p>
+
+    <div class="team-grid">
+        <!-- Team Member 1 -->
+        <div class="team-card">
+            <img src="images/team1.jpeg" alt="Team Member 1" class="team-image">
+            <h3 class="team-name">Hope Mangan</h3>
+            <p class="team-role">Director</p>
+            <p class="team-bio">Hope has over 15 years of experience in children’s ministry, with a passion for helping kids grow spiritually.</p>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div class="team-card">
+            <img src="images/team2.jpeg" alt="Team Member 2" class="team-image">
+            <h3 class="team-name">Gondwe boogey</h3>
+            <p class="team-role">Curriculum Developer</p>
+            <p class="team-bio">Gondwe creates engaging, faith-based curricula tailored to each age group to inspire young hearts and minds.</p>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div class="team-card">
+            <img src="images/team3.jpg" alt="Team Member 3" class="team-image">
+            <h3 class="team-name">Jusabro Plug</h3>
+            <p class="team-role">Volunteer Coordinator</p>
+            <p class="team-bio">Jusabro brings together a community of volunteers, fostering a supportive and inclusive environment for all.</p>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div class="team-card">
+            <img src="images/team4.jpg" alt="Team Member 4" class="team-image">
+            <h3 class="team-name">Taddie chia</h3>
+            <p class="team-role">Youth Mentor</p>
+            <p class="team-bio">Taaddie connects with children on a personal level, guiding them on their journey of faith with compassion.</p>
+        </div>
+    </div>
+</section>
+    <!-- Contact Section -->
+<section class="contact-section" id="contact">
+    <h2>Contact Us</h2>
+    <p>We’d love to hear from you! Reach out with any questions or comments.</p>
+  
+    <div class="contact-container">
+        <!-- Contact Information -->
+        <div class="contact-info">
+            <h3>Our Address</h3>
+            <p>near university, Khondowe<br>Rumphi, Malawi</p>
+  
+            <h3>Email Us</h3>
+            <p>info@mumbwesundayschool.com</p>
+  
+            <h3>Call Us</h3>
+            <p>997</p>
+        </div>
+  
+        <!-- Contact Form -->
+        <div class="contact-form">
+            <form action="" method="POST">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <input type="text" name="subject" placeholder="Subject">
+                <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </div>
+  </section>
+  <!-- Gallery Section -->
+ <section id="gallery">
+    <h2 style="text-align: center;">Gallery</h2>
+    <div class="gallery" id="gallery-items">
+        <!-- Images will be inserted here by JavaScript -->
+    </div>
+    <div class="gallery-controls">
+        <button onclick="previousPage()" id="prev-btn" disabled>Previous</button>
+        <button onclick="nextPage()" id="next-btn">Next</button>
+    </div>
+  </section><br><br>
+  
+  <script>
+  
+    const images = [
+        'images/image1.jpeg', 'images/image2.jpg', 'images/image3.jpeg', 'images/image4.jpeg',
+        'images/image5.jpg', 'images/background1.jpg', 'images/background2.jpg', 'images/background3.jpeg',
+        'images/image3.jpeg', 'images/team1.jpeg', 'images/team2.jpeg', 'images/team3.jpg'
+    ];
+  
+    const itemsPerPage = 8; // Display 8 images at a time
+    let currentPage = 0;
+  
+    // Function to display images on the current page
+    function displayGallery() {
+        const galleryItems = document.getElementById('gallery-items');
+        galleryItems.innerHTML = ''; // Clear existing images
+        const start = currentPage * itemsPerPage;
+        const end = start + itemsPerPage;
+        const currentImages = images.slice(start, end);
+  
+        currentImages.forEach(src => {
+            const imgDiv = document.createElement('div');
+            imgDiv.classList.add('gallery-item');
+            imgDiv.innerHTML = `<img src="${src}" alt="Gallery Image">`;
+            galleryItems.appendChild(imgDiv);
+        });
+  
+        // Enable or disable buttons based on current page
+        document.getElementById('prev-btn').disabled = currentPage === 0;
+        document.getElementById('next-btn').disabled = end >= images.length;
+    }
+  
+    // Navigation functions
+    function nextPage() {
+        if ((currentPage + 1) * itemsPerPage < images.length) {
+            currentPage++;
+            displayGallery();
+        }
+    }
+  
+    function previousPage() {
+        if (currentPage > 0) {
+            currentPage--;
+            displayGallery();
+        }
+    }
+  
+    // Initial gallery display
+    displayGallery();
+  </script>
+  
+  
+  </section>
+  
+  </section>
+    <!-- Footer Section -->
+ <footer class="footer">
+    <!-- About Us -->
+    <div class="footer-column">
+        <h3>About Us</h3>
+        <p>We are committed to teaching children Biblical values and nurturing their spiritual growth at Mumbwe Sunday School. Join us in fostering a brighter future.</p>
+    </div>
+  
+    <!-- Quick Links -->
+    <div class="footer-column">
+        <h3>Quick Links</h3>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#team">Our Team</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </div>
+  
+    <!-- Social Media -->
+    <div class="footer-column">
+        <h3>Follow Us</h3>
+        <div class="social-media">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    </div>
+  
+    <!-- Newsletter Subscription -->
+    <div class="footer-column newsletter">
+        <h3>Subscribe to Our Newsletter</h3>
+        <form action="subscribe.php" method="POST">
+            <input type="email" name="email" placeholder="Enter your email" required>
+            <button type="submit">Subscribe</button>
+        </form>
+    </div>
+  </footer>
+  
+  <!-- Footer Bottom -->
+  <div class="footer-bottom">
+    <p>&copy; 2024 Mumbwe Sunday School. All rights reserved.</p>
+  </div>
+    <script>
+        // Open menu
+function openMenu() {
+    document.getElementById('menu-window').style.display = 'block';
+}
+
+// Close menu
+function closeMenu() {
+    document.getElementById('menu-window').style.display = 'none';
+}
+
+// Function to open the profile modal
+function openProfileModal() {
+    document.getElementById('profileModal').style.display = 'block';
+
+    // Load existing user data (mock data in this case)
+    document.getElementById('username').value = "";
+    document.getElementById('email').value = "";
+    document.getElementById('phone').value = "";
+    document.getElementById('address').value = "";
+}
+
+// Function to close the profile modal
+function closeProfileModal() {
+    document.getElementById('profileModal').style.display = 'none';
+}
+
+// Function to save the profile data
+function saveProfile() {
+    // Get values from the form
+    const username = document.getElementById('username').value;
+    const email = document.getElementById('email').value;
+    const phone = document.getElementById('phone').value;
+    const address = document.getElementById('address').value;
+
+    // Placeholder for saving logic
+    console.log("Saving profile data:", { username, email, phone, address });
+
+    // Close the modal after saving
+    closeProfileModal();
+
+    // Show a success message
+    alert("Profile updated successfully!");
+}
+
+// Close the modal if clicked outside of the modal content
+window.onclick = function(event) {
+    const modal = document.getElementById('profileModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+
+    </script>
