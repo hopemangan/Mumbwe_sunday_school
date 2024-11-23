@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Class Attendance Record</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f6f9;
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 20px;
+    }
+    .container {
+        width: 100%;
+        max-width: 1000px;
+        background-color: #fff;
+        border-radius: 8px;
+        padding: 20px;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    }
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .tab {
+        padding: 10px 20px;
+        cursor: pointer;
+        font-weight: bold;
+        color: #007bff;
+        transition: color 0.3s;
+        border-bottom: 3px solid transparent;
+    }
+    .tab.active {
+        color: #333;
+        border-bottom: 3px solid #007bff;
+    }
+    .search-container {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 20px;
+        flex-wrap: wrap;
+    }
+    .search-container input {
+        padding: 8px;
+        font-size: 14px;
+        width: 48%;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        margin-bottom: 10px;
+    }
+    .search-container input[type="date"] {
+        width: 32%;
+    }
+    table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    th, td {
+        padding: 10px;
+        font-size: 14px;
+        text-align: center;
+        border-bottom: 1px solid #ddd;
+    }
+    th {
+        background-color: #f4f6f9;
+    }
+    .comment {
+        color: #333;
+    }
+    .hidden {
+        display: none;
+    }
+    @media (max-width: 768px) {
+        .container {
+            padding: 15px;
+        }
+        .tabs {
+            flex-direction: column;
+            align-items: center;
+        }
+        .tab {
+            margin-bottom: 10px;
+        }
+        .search-container input {
+            width: 100%;
+        }
+    }
+</style>
+<script>
+    function switchTab(tabName) {
+        document.querySelectorAll('.tab-content').forEach(tab => tab.classList.add('hidden'));
+        document.getElementById(tabName).classList.remove('hidden');
+        document.querySelectorAll('.tab').forEach(tab => tab.classList.remove('active'));
+        document.querySelector(`.tab-${tabName}`).classList.add('active');
+    }
+
+    function filterStudents() {
+        const input = document.getElementById('studentSearch').value.toLowerCase();
+        const rows = document.querySelectorAll('.tab-content tbody tr');
+        rows.forEach(row => {
+            const studentName = row.cells[0].textContent.toLowerCase();
+            row.style.display = studentName.includes(input) ? '' : 'none';
+        });
+    }
+
+    function filterAttendance() {
+        const dateInput = document.getElementById('dateSearch').value;
+        const classInput = document.getElementById('classSearch').value.toLowerCase();
+        const rows = document.querySelectorAll('.tab-content tbody tr');
+        rows.forEach(row => {
+            const className = row.cells[0].textContent.toLowerCase();
+            const dateMatch = dateInput ? row.dataset.date === dateInput : true;
+            const classMatch = className.includes(classInput);
+            row.style.display = dateMatch && classMatch ? '' : 'none';
+        });
+    }
+</script>
+</head>
+<body>
+    <div class="container">
+        <!-- Tabs Navigation -->
+        <div class="tabs">
+            <div class="tab tab-today active" onclick="switchTab('today')" role="tab" aria-selected="true">Today</div>
+            <div class="tab tab-week" onclick="switchTab('week')" role="tab" aria-selected="false">Past Week</div>
+            <div class="tab tab-month" onclick="switchTab('month')" role="tab" aria-selected="false">Last Month</div>
+        </div>
+
+        <!-- Search Bars -->
+        <div class="search-container" role="search">
+            <input type="text" id="studentSearch" placeholder="Search by Student Name" onkeyup="filterStudents()" aria-label="Search by Student Name">
+            <input type="text" id="classSearch" placeholder="Search by Class Name" onkeyup="filterAttendance()" aria-label="Search by Class Name">
+            <input type="date" id="dateSearch" onchange="filterAttendance()" aria-label="Filter by Date">
+        </div>
+
+        <!-- Attendance Table -->
+        <div id="today" class="tab-content" role="tabpanel" aria-labelledby="today">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class Name</th>
+                        <th>Number of Students</th>
+                        <th>Archived</th>
+                        <th>Unarchived</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Comment</th>
+                        <th>Visit Class Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-date="2024-11-15">
+                        <td>Beginners</td>
+                        <td>20</td>
+                        <td>5</td>
+                        <td>15</td>
+                        <td>12</td>
+                        <td>8</td>
+                        <td class="comment">2 late arrivals</td>
+                        <td><a href="#">Visit</a></td>
+                    </tr>
+                    <!-- More rows can be added here for Today -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Past Week Attendance Tab -->
+        <div id="week" class="tab-content hidden" role="tabpanel" aria-labelledby="week">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class Name</th>
+                        <th>Number of Students</th>
+                        <th>Archived</th>
+                        <th>Unarchived</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Comment</th>
+                        <th>Visit Class Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-date="2024-11-08">
+                        <td>Bible Class 1</td>
+                        <td>18</td>
+                        <td>3</td>
+                        <td>15</td>
+                        <td>13</td>
+                        <td>5</td>
+                        <td class="comment">1 excused absence</td>
+                        <td><a href="#">Visit</a></td>
+                    </tr>
+                    <!-- More rows for Past Week -->
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Last Month Attendance Tab -->
+        <div id="month" class="tab-content hidden" role="tabpanel" aria-labelledby="month">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Class Name</th>
+                        <th>Number of Students</th>
+                        <th>Archived</th>
+                        <th>Unarchived</th>
+                        <th>Present</th>
+                        <th>Absent</th>
+                        <th>Comment</th>
+                        <th>Visit Class Attendance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr data-date="2024-10-15">
+                        <td>Bible Class 2</td>
+                        <td>22</td>
+                        <td>4</td>
+                        <td>18</td>
+                        <td>17</td>
+                        <td>5</td>
+                        <td class="comment">All on time</td>
+                        <td><a href="#">Visit</a></td>
+                    </tr>
+                    <!-- More rows for Last Month -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
