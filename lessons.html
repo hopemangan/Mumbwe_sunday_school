@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sunday School Lessons</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="index.css">
+    <style>
+        /* General Page Styling */
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('lessonsimg.jpg'); /* Add your background image URL here */
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff;
+        }
+
+        h1 {
+            text-align: center;
+            color: #fff;
+            margin-top: 20px;
+            background-color: rgba(0, 0, 0, 0.6); /* Add a semi-transparent background for better readability */
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+
+        /* Container Styling */
+        .classes-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 800px;
+            margin: 20px;
+            padding: 20px;
+        }
+
+        /* Class Card Styling */
+        .class-card {
+            background-color: #007BFF; /* Blue color */
+            color: #fff;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .class-card h2 {
+            margin: 0 0 10px;
+            font-size: 1.5em;
+        }
+
+        .class-card p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+
+        .class-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 600px) {
+            .classes-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Sunday School Lessons</h1> <!-- Heading at the top -->
+
+    <div class="classes-container">
+        <!-- Class 1 -->
+        <div class="class-card">
+            <h2>Class 1</h2>
+            <p>Beginer</p>
+            <p>Teacher: Mr. Lusekelo</p>
+        </div>
+
+        <!-- Class 2 -->
+        <div class="class-card">
+            <h2>Class 2</h2>
+            <p>Sunday School</p>
+            <p>Teacher: Ms. Rejoice </p>
+        </div>
+
+        <!-- Class 3 -->
+        <div class="class-card">
+            <h2>Class 3</h2>
+            <p>Junior</p>
+            <p>Teacher: Mrs. Chirwa</p>
+        </div>
+
+        <!-- Class 4 -->
+        <div class="class-card">
+            <h2>Class 4</h2>
+            <p>Senior</p>
+            <p>Teacher: Mrs.Munthali </p>
+        </div>
+
+        <!-- Class 5 -->
+        <div class="class-card">
+            <h2>Class 5</h2>
+            <p>Catechumen</p>
+            <p>Teacher: Mrs. Chirwa</p>
+        </div>
+    </div>
+
+</body>
+</html>

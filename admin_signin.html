@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <link rel="stylesheet" href="sign in.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .error{
+            color: red;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+    
+        
+    </style>
+</head>
+<body>
+        <!-- Login Container -->
+    <div class="login-container">
+        <h2>ADMIN SIGN IN</h2>
+        <form id="loginForm" action="adimini_login.php" method="POST" >
+            <input type="text" name="username" id="username" placeholder="Username" ><div class="error" id="usernameerror" ></div>
+            <input type="password" name="password" id="password" placeholder="Password"><div class="error" id="passworderror"></div>
+            <input type="submit" value="SIGN IN">
+        </form>
+    
+        <hr class="form-divider">
+    
+        <div class="horizontal-align">
+            <div class="hope">
+                <p>Don't have an account? <a href="admin_sign_up.php">Sign up</a></p>
+            </div>
+          
+    </div>
+    
+</body>
+</html>

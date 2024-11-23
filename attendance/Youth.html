@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Youth</title>
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #e9f5f5;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+    }
+    .container {
+        width: 90%;
+        max-width: 800px;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    }
+    h1 {
+        color: #333;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+    .tabs {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    .tab {
+        padding: 8px 16px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: background-color 0.3s, color 0.3s;
+        font-size: 1em;
+    }
+    .tab.active {
+        background-color: #3b82f6;
+        color: #fff;
+        border-radius: 10px;
+    }
+    .progress-bar-container {
+        width: 100%;
+        background-color: #f0f0f0;
+        border-radius: 20px;
+        overflow: hidden;
+        margin-bottom: 25px;
+        height: 10px;
+    }
+    .progress-bar {
+        height: 100%;
+        background: linear-gradient(90deg, #34d399, #3b82f6);
+        width: 0%;
+        transition: width 0.4s ease;
+    }
+    .student-row {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: #f9f9f9;
+        padding: 12px;
+        border-radius: 10px;
+        margin-bottom: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+    .student-info {
+        flex: 2;
+        font-size: 1.1em;
+        color: #444;
+        text-align: left;
+    }
+    .attendance-actions {
+        display: flex;
+        gap: 8px;
+        align-items: center;
+    }
+    .status {
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        margin-right: 6px;
+    }
+    .status.present { background-color: #34d399; }
+    .status.absent { background-color: #f87171; }
+    .mark-link, .archive-link, .unarchive-link {
+        color: #3b82f6;
+        text-decoration: none;
+        font-size: 0.85em;
+        padding: 4px 8px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .mark-link:hover, .archive-link:hover, .unarchive-link:hover {
+        background-color: #3b82f6;
+        color: white;
+    }
+    .done-link, .back-link {
+        display: inline-block;
+        color: white;
+        background-color: #34d399;
+        padding: 6px 12px; /* Reduced padding */
+        border-radius: 6px; /* Slightly smaller border radius */
+        font-size: 0.85em; /* Reduced font size */
+        text-decoration: none;
+        text-align: center;
+        margin: 15px auto 0; /* Centering with auto margin */
+        width: 150px; /* Reduced width */
+        transition: background-color 0.3s;
+    }
+    .back-link {
+        background-color: #f87171;
+    }
+    .done-link:hover, .back-link:hover {
+        background-color: #2e8b57;
+    }
+    .hidden {
+        display: none;
+    }
+</style>
+<script>
+    let presentCount = 0;
+    const totalStudents = 4;
+
+    function markAttendance(link, statusElement) {
+        if (statusElement.classList.contains('present')) {
+            statusElement.classList.remove('present');
+            statusElement.classList.add('absent');
+            link.textContent = 'Mark Present';
+            presentCount--;
+        } else {
+            statusElement.classList.remove('absent');
+            statusElement.classList.add('present');
+            link.textContent = 'Mark Absent';
+            presentCount++;
+        }
+        updateProgressBar();
+    }
+
+    function updateProgressBar() {
+        const progress = (presentCount / totalStudents) * 100;
+        document.querySelector('.progress-bar').style.width = `${progress}%`;
+    }
+
+    function archiveStudent(rowElement) {
+        const archivedList = document.querySelector('.archived-list');
+        rowElement.querySelector('.archive-link').remove();
+        const unarchiveLink = document.createElement('a');
+        unarchiveLink.textContent = 'Unarchive';
+        unarchiveLink.className = 'unarchive-link';
+        unarchiveLink.href = '#';
+        unarchiveLink.onclick = () => unarchiveStudent(rowElement);
+        rowElement.querySelector('.attendance-actions').appendChild(unarchiveLink);
+        archivedList.appendChild(rowElement);
+        updateProgressBar();
+    }
+
+    function unarchiveStudent(rowElement) {
+        const studentList = document.querySelector('.student-list');
+        rowElement.querySelector('.unarchive-link').remove();
+        const archiveLink = document.createElement('a');
+        archiveLink.textContent = 'Archive';
+        archiveLink.className = 'archive-link';
+        archiveLink.href = '#';
+        archiveLink.onclick = () => archiveStudent(rowElement);
+        rowElement.querySelector('.attendance-actions').appendChild(archiveLink);
+        studentList.appendChild(rowElement);
+        updateProgressBar();
+    }
+
+    function switchTab(tabName) {
+        document.querySelector('.attendance-section').classList.add('hidden');
+        document.querySelector('.archived-section').classList.add('hidden');
+        document.querySelector(`.${tabName}-section`).classList.remove('hidden');
+        document.querySelector('.tab.active').classList.remove('active');
+        document.querySelector(`.tab-${tabName}`).classList.add('active');
+    }
+
+    function submitAttendance() {
+        alert("Attendance submitted successfully!");
+        // Additional logic for submitting attendance can be added here
+    }
+
+    function goBack() {
+        alert("Returning to previous section...");
+        // Additional logic to navigate back can be added here
+    }
+</script>
+</head>
+<body>
+<div class="container">
+    <h1>Youth Class Attendance</h1>
+    <div class="tabs">
+        <div class="tab tab-attendance active" onclick="switchTab('attendance')">Attendance</div>
+        <div class="tab tab-archived" onclick="switchTab('archived')">Archived</div>
+    </div>
+
+    <!-- Progress bar only visible in attendance tab -->
+    <div class="progress-bar-container attendance-section">
+        <div class="progress-bar"></div>
+    </div>
+
+    <!-- Attendance List -->
+    <div class="student-list attendance-section">
+        <div class="student-row">
+            <div class="student-info">Student Name: John Doe | Student ID: #STDB001</div>
+            <div class="attendance-actions">
+                <div class="status absent"></div>
+                <a href="#" class="mark-link" onclick="markAttendance(this, this.previousElementSibling)">Mark Present</a>
+                <a href="#" class="archive-link" onclick="archiveStudent(this.parentElement.parentElement)">Archive</a>
+            </div>
+        </div>
+        <div class="student-row">
+            <div class="student-info">Student Name: Jane Smith | Student ID: #STDB002</div>
+            <div class="attendance-actions">
+                <div class="status absent"></div>
+                <a href="#" class="mark-link" onclick="markAttendance(this, this.previousElementSibling)">Mark Present</a>
+                <a href="#" class="archive-link" onclick="archiveStudent(this.parentElement.parentElement)">Archive</a>
+            </div>
+        </div>
+        <div class="student-row">
+            <div class="student-info">Student Name: Michael Brown | Student ID: #STDB003</div>
+            <div class="attendance-actions">
+                <div class="status absent"></div>
+                <a href="#" class="mark-link" onclick="markAttendance(this, this.previousElementSibling)">Mark Present</a>
+                <a href="#" class="archive-link" onclick="archiveStudent(this.parentElement.parentElement)">Archive</a>
+            </div>
+        </div>
+        <div class="student-row">
+            <div class="student-info">Student Name: Emily White | Student ID: #STDB004</div>
+            <div class="attendance-actions">
+                <div class="status absent"></div>
+                <a href="#" class="mark-link" onclick="markAttendance(this, this.previousElementSibling)">Mark Present</a>
+                <a href="#" class="archive-link" onclick="archiveStudent(this.parentElement.parentElement)">Archive</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Archived List -->
+    <div class="student-list archived-section hidden">
+        <div class="student-row">
+            <div class="student-info">Student Name: John Doe | Student ID: #STDB001</div>
+            <div class="attendance-actions">
+                <div class="status present"></div>
+                <a href="#" class="unarchive-link" onclick="unarchiveStudent(this.parentElement.parentElement)">Unarchive</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Done and Back Links -->
+    <div class="actions">
+        <a href="#" class="done-link" onclick="submitAttendance()">Submit Attendance</a>
+        <a href="#" class="back-link" onclick="goBack()">Back</a>
+    </div>
+</div>
+</body>
+</html>
